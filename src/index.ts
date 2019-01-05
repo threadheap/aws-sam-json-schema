@@ -111,7 +111,7 @@ const main = async () => {
 
     fs.writeFileSync(
         path.join(process.cwd(), 'schema.json'),
-        JSON.stringify(generateSchema(schema), null, 2),
+        JSON.stringify(generateSchema(schema), null, 4),
         'utf-8'
     );
 };
