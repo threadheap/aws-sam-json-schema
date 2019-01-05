@@ -21,6 +21,7 @@
   },
   "scripts": {
     "build": "rm -rf ./out && tsc -p .",
-    "watch": "rm -rf ./out && yarn build --watch"
+    "watch": "rm -rf ./out && yarn build --watch",
+    "generate": "yarn build && node out/index.js"
   }
 }

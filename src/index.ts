@@ -7,10 +7,11 @@ import pick = require('lodash/pick');
 
 const downloadSchema = async (): Promise<object> => {
     const response = await request.get(
-        'https://raw.githubusercontent.com/awslabs/goformation/master/schema/sam.schema.json'
+        'https://raw.githubusercontent.com/awslabs/goformation/master/schema/sam.schema.json',
+        {json: true}
     );
 
-    return JSON.parse(response);
+    return response;
 };
 
 // https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
