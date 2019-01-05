@@ -38776,105 +38776,117 @@
             "additionalProperties": false,
             "properties": {
                 "Api": {
-                    "EndpointConfiguration": {
-                        "$ref": "#/definitions/AWS::ApiGateway::DomainName.EndpointConfiguration"
-                    },
-                    "MethodSettings": {
-                        "type": "object"
-                    },
-                    "BinaryMediaTypes": {
-                        "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "EndpointConfiguration": {
+                            "$ref": "#/definitions/AWS::ApiGateway::DomainName.EndpointConfiguration"
+                        },
+                        "MethodSettings": {
+                            "type": "object"
+                        },
+                        "BinaryMediaTypes": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "Name": {
                             "type": "string"
                         },
-                        "type": "array"
-                    },
-                    "Name": {
-                        "type": "string"
-                    },
-                    "DefinitionUri": {
-                        "anyOf": [
-                            {
-                                "type": [
-                                    "string"
-                                ]
-                            },
-                            {
-                                "$ref": "#/definitions/AWS::Serverless::Api.S3Location"
-                            }
-                        ]
-                    },
-                    "CacheClusterEnabled": {
-                        "type": "boolean"
-                    },
-                    "CacheClusterSize": {
-                        "type": "string"
-                    },
-                    "Variables": {
-                        "additionalProperties": false,
-                        "patternProperties": {
-                            "^[a-zA-Z0-9]+$": {
-                                "type": "string"
-                            }
+                        "DefinitionUri": {
+                            "anyOf": [
+                                {
+                                    "type": [
+                                        "string"
+                                    ]
+                                },
+                                {
+                                    "$ref": "#/definitions/AWS::Serverless::Api.S3Location"
+                                }
+                            ]
                         },
-                        "type": "object"
+                        "CacheClusterEnabled": {
+                            "type": "boolean"
+                        },
+                        "CacheClusterSize": {
+                            "type": "string"
+                        },
+                        "Variables": {
+                            "additionalProperties": false,
+                            "patternProperties": {
+                                "^[a-zA-Z0-9]+$": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "Function": {
-                    "Handler": {
-                        "type": "string"
-                    },
-                    "Runtime": {
-                        "type": "string"
-                    },
-                    "CodeUri": {
-                        "anyOf": [
-                            {
-                                "type": [
-                                    "string"
-                                ]
-                            },
-                            {
-                                "$ref": "#/definitions/AWS::Serverless::Function.S3Location"
-                            }
-                        ]
-                    },
-                    "DeadLetterQueue": {
-                        "$ref": "#/definitions/AWS::Serverless::Function.DeadLetterQueue"
-                    },
-                    "Description": {
-                        "type": "string"
-                    },
-                    "MemorySize": {
-                        "type": "number"
-                    },
-                    "Timeout": {
-                        "type": "number"
-                    },
-                    "VpcConfig": {
-                        "$ref": "#/definitions/AWS::Serverless::Function.VpcConfig"
-                    },
-                    "Environment": {
-                        "$ref": "#/definitions/AWS::Serverless::Function.FunctionEnvironment"
-                    },
-                    "Tags": {
-                        "additionalProperties": false,
-                        "patternProperties": {
-                            "^[a-zA-Z0-9]+$": {
-                                "type": "string"
-                            }
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "Handler": {
+                            "type": "string"
                         },
-                        "type": "object"
-                    },
-                    "Tracing": {
-                        "type": "string"
-                    },
-                    "KmsKeyArn": {
-                        "type": "string"
+                        "Runtime": {
+                            "type": "string"
+                        },
+                        "CodeUri": {
+                            "anyOf": [
+                                {
+                                    "type": [
+                                        "string"
+                                    ]
+                                },
+                                {
+                                    "$ref": "#/definitions/AWS::Serverless::Function.S3Location"
+                                }
+                            ]
+                        },
+                        "DeadLetterQueue": {
+                            "$ref": "#/definitions/AWS::Serverless::Function.DeadLetterQueue"
+                        },
+                        "Description": {
+                            "type": "string"
+                        },
+                        "MemorySize": {
+                            "type": "number"
+                        },
+                        "Timeout": {
+                            "type": "number"
+                        },
+                        "VpcConfig": {
+                            "$ref": "#/definitions/AWS::Serverless::Function.VpcConfig"
+                        },
+                        "Environment": {
+                            "$ref": "#/definitions/AWS::Serverless::Function.FunctionEnvironment"
+                        },
+                        "Tags": {
+                            "additionalProperties": false,
+                            "patternProperties": {
+                                "^[a-zA-Z0-9]+$": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "Tracing": {
+                            "type": "string"
+                        },
+                        "KmsKeyArn": {
+                            "type": "string"
+                        }
                     }
                 },
                 "SimpleTable": {
-                    "SSESpecification": {
-                        "$ref": "#/definitions/AWS::DAX::Cluster.SSESpecification"
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "SSESpecification": {
+                            "$ref": "#/definitions/AWS::DAX::Cluster.SSESpecification"
+                        }
                     }
                 }
             }

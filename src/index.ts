@@ -72,33 +72,45 @@ const generateSchema = (schema: any): any => {
             additionalProperties: false,
             properties: {
                 Api: {
-                    EndpointConfiguration: {
-                        $ref:
-                            '#/definitions/AWS::ApiGateway::DomainName.EndpointConfiguration'
-                    },
-                    MethodSettings: {
-                        items: {
+                    type: "object",
+                    additionalProperties: false,
+                    properties: {
+                        EndpointConfiguration: {
                             $ref:
-                                '#/definitions/AWS::ApiGateway::Stage.MethodSetting'
+                                '#/definitions/AWS::ApiGateway::DomainName.EndpointConfiguration'
                         },
-                        type: 'array'
-                    },
-                    BinaryMediaTypes: {
-                        items: {
-                            type: 'string'
+                        MethodSettings: {
+                            items: {
+                                $ref:
+                                    '#/definitions/AWS::ApiGateway::Stage.MethodSetting'
+                            },
+                            type: 'array'
                         },
-                        type: 'array'
-                    },
-                    ...pick(apiProperties, globalApiProperties)
+                        BinaryMediaTypes: {
+                            items: {
+                                type: 'string'
+                            },
+                            type: 'array'
+                        },
+                        ...pick(apiProperties, globalApiProperties)
+                    }
                 },
                 Function: {
-                    ...pick(functionProperties, globalFunctionProperties)
+                    type: "object",
+                    additionalProperties: false,
+                    properties: {
+                        ...pick(functionProperties, globalFunctionProperties)
+                    }
                 },
                 SimpleTable: {
-                    SSESpecification: {
-                        $ref: '#/definitions/AWS::DAX::Cluster.SSESpecification'
-                    },
-                    ...pick(tableProperties, globalTableProperties)
+                    type: 'object',
+                    additionalProperties: false,
+                    properties: {
+                        SSESpecification: {
+                            $ref: '#/definitions/AWS::DAX::Cluster.SSESpecification'
+                        },
+                        ...pick(tableProperties, globalTableProperties)
+                    }
                 }
             }
         };
