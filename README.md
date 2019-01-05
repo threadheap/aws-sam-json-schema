@@ -7,11 +7,12 @@ and adds support of globals configuration
 
 ## How to
 
-````sh
+```sh
 yarn
-``
+```
 
 To generate schema:
+
 ```sh
 yarn build && node out/index.js
-````
+```
